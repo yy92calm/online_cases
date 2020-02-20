@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 # coding=UTF-8
 '''
-@Author: yang zhiwei
-@LastAuthor: yang zhiwei
+@Author: David Yang
 @Description: 配置文件 
 @CreateTime: 2019-04-23 10:59:17
-@LastTime: 2019-05-09 17:49:21
 '''
 
 import os

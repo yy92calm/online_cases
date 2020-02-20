@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 # coding=UTF-8
 '''
-@Author: yang zhiwei
-@LastAuthor: yang zhiwei
+@Author: David Yang
 @Description: 命令行，创建/删除数据库，创建测试数据
 @CreateTime: 2019-04-23 10:58:04
-@LastTime: 2019-05-10 14:12:09
 '''
 
 import click

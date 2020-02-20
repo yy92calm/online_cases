@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 # coding=UTF-8
 '''
-@Author: yang zhiwei
-@LastAuthor: yang zhiwei
+@Author: David Yang
 @Description: 
 @CreateTime: 2019-04-23 10:55:34
-@LastTime: 2019-05-10 14:07:15
 '''
 
 from flask import Flask

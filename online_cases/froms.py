@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 # coding=UTF-8
 '''
-@Author: yang zhiwei
-@LastAuthor: yang zhiwei
+@Author: David Yang
 @Description: 
 @CreateTime: 2019-05-05 16:05:22
-@LastTime: 2019-05-10 14:10:37
 '''
 
 from flask_wtf import Form

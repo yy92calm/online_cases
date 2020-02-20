@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 # coding=UTF-8
 '''
-@Author: yang zhiwei
-@LastAuthor: yang zhiwei
+@Author: David Yang
 @Description: 日志结果匹配，获取用用例数及时间 
 @CreateTime: 2019-04-26 14:44:28
-@LastTime: 2019-05-17 15:19:54
 '''
 
 import re

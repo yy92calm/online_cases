@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 # coding=UTF-8
 '''
-@Author: yang zhiwei
-@LastAuthor: yang zhiwei
+@Author: David Yang
 @Description: 数据库构造
 @CreateTime: 2019-04-23 10:59:02
-@LastTime: 2019-05-10 14:12:27
 '''
 
 from datetime import datetime

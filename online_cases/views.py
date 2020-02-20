@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 # coding=UTF-8
 '''
-@Author: yang zhiwei
-@LastAuthor: yang zhiwei
+@Author: David Yang
 @Description: 视图，用例工程增加、编辑、删除、查看报告 
 @CreateTime: 2019-04-23 10:59:23
-@LastTime: 2019-05-17 15:20:51
 '''
 
 from flask import flash, redirect, url_for, render_template, request

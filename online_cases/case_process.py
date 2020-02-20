@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 # coding=UTF-8
 '''
-@Author: yang zhiwei
-@LastAuthor: yang zhiwei
+@Author: David Yang
 @Description: 命令行方式调用用例，并将过程日志存以模块_时间命名储在log文件夹
 @CreateTime: 2019-04-25 10:42:03
-@LastTime: 2019-05-17 15:21:46
 '''
 
 import shlex, subprocess, time, logging

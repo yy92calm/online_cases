@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 # coding=UTF-8
 '''
-@Author: yang zhiwei
-@LastAuthor: yang zhiwei
+@Author: David Yang
 @Description: 异常页面
 @CreateTime: 2019-04-23 16:57:06
-@LastTime: 2019-05-10 14:10:24
 '''
 
 from flask import render_template
