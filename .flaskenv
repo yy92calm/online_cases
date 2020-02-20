@@ -1,0 +1,2 @@
+FLASK_APP=online_cases
+FLASK_ENV=development

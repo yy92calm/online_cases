@@ -1,0 +1,39 @@
+<!--
+ * @Author: yang zhiwei
+ * @LastAuthor: yang zhiwei
+ * @Description:基础模板（废弃） 
+ * @CreateTime: 2019-04-23 10:56:42
+ * @LastTime: 2019-05-10 14:13:42
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title> {% block title %}TYRZ_Cases!{% endblock%} </title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css')}} "type="text/css">
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}" type="text/css">
+        
+    </head>
+    <body>
+            {% block head %}
+            {{nav.top.render()}}
+            {% endblock%}
+            {% for message in get_flashed_messages() %}
+            <div class="alert alert=info">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% block content %}{% endblock %}
+            <footer>
+            {% block footer %}{% endblock %}
+            </footer>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.slim.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+        {{ moment.include_moment(local_js=url_for('static',filename='js/moment-with-locales.min.js'))}}
+        {% block script %}{% endblock %}
+    </body>
+</html>

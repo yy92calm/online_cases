@@ -1,0 +1,15 @@
+<!--
+ * @Author: yang zhiwei
+ * @LastAuthor: yang zhiwei
+ * @Description: 增加项目
+ * @CreateTime: 2019-05-05 15:22:20
+ * @LastTime: 2019-05-10 14:13:09
+ -->
+
+{% extends 'base.html' %}
+{% from 'bootstrap/wtf.html' import quick_form %}
+{% block content %}
+<div class="container">
+    {{ quick_form(form) }}
+</div>
+{% endblock %}

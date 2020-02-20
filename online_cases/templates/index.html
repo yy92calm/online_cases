@@ -1,0 +1,78 @@
+<!--
+ * @Author: yang zhiwei
+ * @LastAuthor: yang zhiwei
+ * @Description:用例项目主页面 
+ * @CreateTime: 2019-04-23 11:34:43
+ * @LastTime: 2019-05-10 14:14:02
+ -->
+
+{% extends 'base.html' %}
+{% block content %}
+<div class="panel">
+    <div class="panel-heading">
+        <a href="{{ url_for('add_project')}}" class="btn btn-primary">添加项目</a>
+    <div class="panel-body">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th id="">id</th>
+                    <th func_name="">功能模块</th>
+                    <th exec_status="">操作</th>
+                    <th exec_result="">上次运行结果</th>
+                    <th total_cases="">总用例数</th>
+                    <th fail_cases="">失败用例数</th>
+                    <th error_cases="">错误用例数</th>
+                    <th skip_cases="">跳过用例数</th>
+                    <th report_folder="">报告地址</th>
+                    <th stop_time="">上次结束时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for project in projects %}
+                <tr>
+                    <td class="bg">{{project.id}}</td>
+                    <td class="bg">{{project.func_name}}</td>
+                    {% if project.exec_status==0 %}
+                    <td class="bg">
+                        <a href="{{ url_for('check_case',id=project.id) }}" class="btn btn-success">运行</a>
+                        <a href="{{ url_for('del_project',id=project.id) }}" class="btn btn-danger">删除</a>
+                        <a href="{{ url_for('update_project',id=project.id) }}" class="btn btn-warning">更新</a>
+                    </td>
+                    {% else %}
+                    <td class="bg">
+                        <button href="404" class="btn btn-danger" disabled="disabled">运行中</button>
+                        <a href="{{ url_for('del_project',id=project.id) }}" class="btn btn-danger">删除</a>
+                    </td>
+                    {% endif %}
+                    {% if project.exec_result==0 %}
+                    <td class="bg">
+                        <p class="text-left text-warning">无运行结果</p>
+                    </td>
+                    {% elif project.exec_result==1 %}
+                    <td class="bg">
+                        <p class="text-left text-success">成功</p>
+                    </td>
+                    {% elif project.exec_result==2 %}
+                    <td class="bg">
+                        <p class="text-left text-danger">失败</p>
+                    </td>
+                    {% endif %}
+                    <td class="bg">{{project.total_cases}}</td>
+                    <td class="bg">{{project.fail_cases}}</td>
+                    <td class="bg">{{project.error_cases}}</td>
+                    <td class="bg">{{project.skip_cases}}</td>
+                    <td class="bg">
+                    {% if project.exec_result==0 %}
+                    <a>暂无报告</a>
+                    {% else %}
+                    <a href="{{ url_for('show_report',func_folder=project.func_folder ,report_folder=project.report_folder) }}">查看报告</a>
+                    {% endif %}
+                    </td>
+                    <td class="bg">{{project.end_time}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

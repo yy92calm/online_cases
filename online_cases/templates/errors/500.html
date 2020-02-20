@@ -1,0 +1,19 @@
+<!--
+ * @Author: yang zhiwei
+ * @LastAuthor: yang zhiwei
+ * @Description: 500
+ * @CreateTime: 2019-04-23 16:57:38
+ * @LastTime: 2019-05-10 14:14:35
+ -->
+
+{% extends "base.html" %}
+
+{% block title %}500 Error{% endblock %}
+
+{% block content %}
+    <p class="text-center">Internal Server Error</p>
+{% endblock %}
+
+{% block footer %}
+    <a href="{{ url_for('index') }}">&larr; Go Back</a>
+{% endblock %}
