@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [test01]">
+  <test name="autotest-mainTest(failed)">
+    <classes>
+      <class name="testCase.HelloTestNG">
+        <methods>
+          <include name="success_test_02"/>
+        </methods>
+      </class> <!-- testCase.HelloTestNG -->
+    </classes>
+  </test> <!-- autotest-mainTest(failed) -->
+</suite> <!-- Failed suite [test01] -->
