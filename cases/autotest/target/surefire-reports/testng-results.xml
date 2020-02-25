@@ -2,7 +2,7 @@
 <testng-results skipped="0" failed="1" ignored="0" total="2" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="test01" duration-ms="78" started-at="2020-02-20T07:17:48Z" finished-at="2020-02-20T07:17:48Z">
+  <suite name="test01" duration-ms="157" started-at="2020-02-25T06:55:56Z" finished-at="2020-02-25T06:55:56Z">
     <groups>
       <group name="other">
         <method signature="HelloTestNG.success_test_02()[pri:0, instance:testCase.HelloTestNG@31b7dea0]" name="success_test_02" class="testCase.HelloTestNG"/>
@@ -11,13 +11,13 @@
         <method signature="HelloTestNG.success_test_01()[pri:0, instance:testCase.HelloTestNG@31b7dea0]" name="success_test_01" class="testCase.HelloTestNG"/>
       </group> <!-- main -->
     </groups>
-    <test name="autotest-mainTest" duration-ms="78" started-at="2020-02-20T07:17:48Z" finished-at="2020-02-20T07:17:48Z">
+    <test name="autotest-mainTest" duration-ms="157" started-at="2020-02-25T06:55:56Z" finished-at="2020-02-25T06:55:56Z">
       <class name="testCase.HelloTestNG">
-        <test-method status="PASS" signature="success_test_01()[pri:0, instance:testCase.HelloTestNG@31b7dea0]" name="success_test_01" duration-ms="23" started-at="2020-02-20T15:17:48Z" finished-at="2020-02-20T15:17:48Z">
+        <test-method status="PASS" signature="success_test_01()[pri:0, instance:testCase.HelloTestNG@31b7dea0]" name="success_test_01" duration-ms="22" started-at="2020-02-25T14:55:56Z" finished-at="2020-02-25T14:55:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- success_test_01 -->
-        <test-method status="FAIL" signature="success_test_02()[pri:0, instance:testCase.HelloTestNG@31b7dea0]" name="success_test_02" duration-ms="1" started-at="2020-02-20T15:17:48Z" finished-at="2020-02-20T15:17:48Z">
+        <test-method status="FAIL" signature="success_test_02()[pri:0, instance:testCase.HelloTestNG@31b7dea0]" name="success_test_02" duration-ms="1" started-at="2020-02-25T14:55:56Z" finished-at="2020-02-25T14:55:56Z">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [2] but found [1]]]>

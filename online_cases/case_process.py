@@ -8,7 +8,7 @@
 
 import shlex, subprocess, time, logging
 from threading import Timer
-import signal,re,os
+import signal, re, os, platform
 
 
 class cmd_process:
@@ -50,16 +50,22 @@ class cmd_process:
         cmd = shlex.split(self.cmd)
         cwd = self.folder.replace("\\","/")
         print cmd,cwd
-        p = subprocess.Popen(cmd,stdout=stdout.fileno(), stderr=stderr.fileno(),cwd = cwd)
-        my_timer = Timer(self.timeout, self.timeout_callback, [p])
-        my_timer.start()
+
+        if platform.system().lower() == 'windows':
+            p = subprocess.Popen(cmd, stdout=stdout.fileno(), stderr=stderr.fileno(), cwd=cwd, shell=True)
+        elif platform.system().lower() == 'linux':
+            p = subprocess.Popen(cmd, stdout=stdout.fileno(), stderr=stderr.fileno(), cwd=cwd)
+            my_timer = Timer(self.timeout, self.timeout_callback, [p])
+            my_timer.start()
+
         print p.pid
         try:
             while p.poll() == None:
                 time.sleep(5)
         finally:
             print "run over"
-            my_timer.cancel()
+            if platform.system().lower() == 'linux':
+                my_timer.cancel()
             stdout.flush()
             stderr.flush()
             stdout.close()

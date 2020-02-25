@@ -9,7 +9,7 @@
 1. 基于Python2
 2. pip install -r requirmnts.txt
 3. python run -m flask  
-4. 当前仅适用于Linux环境
+4. 当前适用于Linux/windows环境
 
 ![主界面](logs/page.png)
 ### 后续优化 ###
