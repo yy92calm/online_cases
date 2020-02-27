@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-test01">
-              <span class="suite-name border-failed">test01</span>
+              <span class="suite-name border-passed">test01</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,21 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-test01" class="hide-methods failed suite-test01"> (hide)</a> <!-- hide-methods failed suite-test01 -->
-                      <a href="#" panel-name="suite-test01" class="show-methods failed suite-test01"> (show)</a> <!-- show-methods failed suite-test01 -->
-                    </span>
-                    <div class="method-list-content failed suite-test01">
-                      <span>
-                        <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-test01" title="testCase.HelloTestNG" hash-for-method="success_test_02">success_test_02</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-test01 -->
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -117,6 +103,11 @@
                       <span>
                         <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-test01" title="testCase.HelloTestNG" hash-for-method="success_test_01">success_test_01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-test01" title="testCase.HelloTestNG" hash-for-method="success_test_02">success_test_02</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-test01 -->
@@ -131,25 +122,6 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-test01" class="panel test01">
-          <div class="suite-test01-class-failed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">testCase.HelloTestNG</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="success_test_02">
-                  </a> <!-- success_test_02 -->
-                  <span class="method-name">success_test_02</span>
-                  <div class="stack-trace">java.lang.AssertionError: expected [2] but found [1]
-	at testCase.HelloTestNG.success_test_02(HelloTestNG.java:20)
-... Removed 34 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-test01-class-failed -->
           <div class="suite-test01-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -161,6 +133,13 @@
                   <a name="success_test_01">
                   </a> <!-- success_test_01 -->
                   <span class="method-name">success_test_01</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="success_test_02">
+                  </a> <!-- success_test_02 -->
+                  <span class="method-name">success_test_02</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -237,7 +216,7 @@ data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'success_test_01')
 data.setCell(0, 2, 'testCase.HelloTestNG')
-data.setCell(0, 3, 22);
+data.setCell(0, 3, 26);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'success_test_02')
 data.setCell(1, 2, 'testCase.HelloTestNG')
@@ -246,7 +225,7 @@ window.suiteTableData['test01']= { tableData: data, tableDiv: 'times-div-test01'
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 23 ms</span>
+              <span class="suite-total-time">Total running time: 27 ms</span>
               <div id="times-div-test01">
               </div> <!-- times-div-test01 -->
             </div> <!-- times-div -->
@@ -278,10 +257,8 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">success_test_02</span>
-                <span class="method-start">27 ms</span>
+                <span class="method-start">30 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

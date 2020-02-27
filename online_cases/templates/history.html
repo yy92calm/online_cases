@@ -1,0 +1,61 @@
+<!--
+ * @Author:david yang
+ * @Description:项目历史运行记录
+ * @CreateTime: 2020-02-27 10:16:43
+ -->
+
+{% extends 'base.html' %}
+{% block content %}
+<div class="panel">
+    <div class="panel-heading">
+        <a class="card-title">历史运行记录</a>
+    <div class="panel-body">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th id="">id</th>
+                    <th func_name="">功能模块</th>
+                    <th exec_result="">运行结果</th>
+                    <th total_cases="">总用例数</th>
+                    <th fail_cases="">失败用例数</th>
+                    <th error_cases="">错误用例数</th>
+                    <th skip_cases="">跳过用例数</th>
+                    <th log_file="">详细报告</th>
+                    <th stop_time="">结束时间</th>
+                    <th record_time="">记录时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in records %}
+                <tr>
+                    <td class="bg">{{record.id}}</td>
+                    <td class="bg">{{record.func_name}}</td>
+                    {% if record.exec_result==0 %}
+                    <td class="bg">
+                        <p class="text-left text-warning">无运行结果</p>
+                    </td>
+                    {% elif record.exec_result==1 %}
+                    <td class="bg">
+                        <p class="text-left text-success">成功</p>
+                    </td>
+                    {% elif record.exec_result==2 %}
+                    <td class="bg">
+                        <p class="text-left text-danger">失败</p>
+                    </td>
+                    {% endif %}
+                    <td class="bg">{{record.total_cases}}</td>
+                    <td class="bg">{{record.fail_cases}}</td>
+                    <td class="bg">{{record.error_cases}}</td>
+                    <td class="bg">{{record.skip_cases}}</td>
+                    <td class="bg">
+                        <a href="{{ url_for('show_log',log_file=record.log_file) }}">查看日志</a>
+                    </td>
+                    <td class="bg">{{record.end_time}}</td>
+                    <td class="bg">{{record.record_time}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

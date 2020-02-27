@@ -9,7 +9,7 @@
 import click
 
 from online_cases import app, db
-from online_cases.models import Project
+from online_cases.models import Project, Record
 
 #初始化数据库:flask initdb
 #删除数据库flask initdb --drop
@@ -36,17 +36,22 @@ def forge(count):
 
     for i in range(count):
         project = Project(
-            func_name = "client",
-            func_folder = "TYRZ_AUTOTEST\\UcmSdk_Test_Smoke",
+            func_name = "testcase1",
+            func_folder = "autotest",
             func_command = "mvn clean test",
             report_folder = "target\\surefire-reports\\emailable-report.html",
-            exec_status = 0,
-            exec_result = 0,
-            total_cases = fake.random_int(0,9),
-            fail_cases = fake.random_int(0,9),
-            error_cases = fake.random_int(0,9),
-            skip_cases = fake.random_int(0,9),
         )
         db.session.add(project)
+        record = Record(
+            func_name="testcase1",
+            log_file="autotest_2020-02-25-14-55-41_out.log",
+            exec_result=fake.random_int(0, 1),
+            total_cases=fake.random_int(0, 9),
+            fail_cases=fake.random_int(0, 9),
+            error_cases=fake.random_int(0, 9),
+            skip_cases=fake.random_int(0, 9),
+            end_time=None,
+        )
+        db.session.add(record)
     db.session.commit()
     click.echo('Created %d fake projects.' % count)

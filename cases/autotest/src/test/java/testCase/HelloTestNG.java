@@ -17,6 +17,6 @@ public class HelloTestNG {
     {
         System.out.println("This is main test01!");
         int i = 2;
-        Assert.assertEquals(1,i);
+        Assert.assertEquals(2,i);
     }
 }

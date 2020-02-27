@@ -1,0 +1,15 @@
+<!--
+ * @Author: david yang
+ * @Description: 日志展示
+ * @CreateTime: 2019-05-08 09:53:13
+ -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="bg-light text-xl-center">
+    {% for line in lines %}
+        <p class="text-md-center">{{ line }}</p>
+    {% endfor %}
+    </div>
+{% endblock %}

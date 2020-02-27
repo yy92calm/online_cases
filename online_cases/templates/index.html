@@ -65,8 +65,9 @@
                     {% if project.exec_result==0 %}
                     <a>暂无报告</a>
                     {% else %}
-                    <a href="{{ url_for('show_report',func_folder=project.func_folder ,report_folder=project.report_folder) }}">查看报告</a>
+                        <a href="{{ url_for('show_report',func_folder=project.func_folder ,report_folder=project.report_folder) }}">查看报告</a>
                     {% endif %}
+                    <a href="{{ url_for('history',func_name=project.func_name)}}">历史记录</a>
                     </td>
                     <td class="bg">{{project.end_time}}</td>
                     </tr>

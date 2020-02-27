@@ -8,10 +8,9 @@
 
 from flask import flash, redirect, url_for, render_template, request
 from online_cases import app, db
-from online_cases.models import Project
+from online_cases.models import Project,Record
 from online_cases.case_process import cmd_process
 from online_cases.case_result import case_result
-from online_cases.settings import cases_folder
 from online_cases.froms import Project_Form
 import threading, time, random, codecs, re, os
 from online_cases.settings import cases_folder,logs_folder
@@ -21,6 +20,13 @@ from online_cases.settings import cases_folder,logs_folder
 def index():
     projects = Project.query.all()
     return render_template('index.html', projects=projects)
+
+#历史运行记录页面
+@app.route('/history', methods=['GET'])
+def history():
+    func_name = request.args.get('func_name')
+    records = Record.query.filter_by(func_name=func_name).order_by(Record.id.desc()).all()
+    return render_template('history.html',records=records)
 
 #关于页面
 @app.route('/about', methods=['GET'])
@@ -51,7 +57,20 @@ def show_report():
         file_html_data = file_html.read()
     file_html.close()
     return file_html_data
-    #return render_template('report.html',file_path = file_html_data)
+
+#查看log日志报告
+@app.route('/log',methods=['GET'])
+def show_log():
+    log_file = request.args.get('log_file')
+    file_path = str(log_file)
+    file_path = file_path.replace("\\","/")
+    print file_path
+    #获取设置的报告内容
+    with codecs.open(file_path, 'r', encoding='utf-8') as file_log:
+        file_data = file_log.readlines()
+    file_log.close()
+    #return file_data
+    return render_template('log.html',lines=file_data)
 
 #增加项目
 @app.route('/add',methods=['GET','POST'])
@@ -140,10 +159,13 @@ def thread_run_case(id):
         else:
             project.end_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 
+
     except Exception,err:
         print err
         project.exec_result = 0
         project.end_time = None
-    
+
     project.exec_status = 0
+    record = Record(project.func_name,outfile,project.exec_result,project.total_cases,project.fail_cases,project.error_cases,project.skip_cases,project.end_time)
+    db.session.add(record)
     db.session.commit()

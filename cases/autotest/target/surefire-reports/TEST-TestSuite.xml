@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestSuite" time="0.044" tests="2" errors="0" skipped="0" failures="1">
+<testsuite name="TestSuite" time="0.025" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="D:\Java\jdk1.8.0_191\jre\bin"/>
@@ -62,18 +62,6 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="success_test_01" classname="testCase.HelloTestNG" time="0.019"/>
-  <testcase name="success_test_02" classname="testCase.HelloTestNG" time="0.025">
-    <failure message="expected [2] but found [1]" type="java.lang.AssertionError">java.lang.AssertionError: expected [2] but found [1]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:513)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
-	at org.testng.Assert.assertEquals(Assert.java:116)
-	at org.testng.Assert.assertEquals(Assert.java:389)
-	at org.testng.Assert.assertEquals(Assert.java:399)
-	at testCase.HelloTestNG.success_test_02(HelloTestNG.java:20)
-</failure>
-    <system-out><![CDATA[This is main test01!
-]]></system-out>
-  </testcase>
+  <testcase name="success_test_01" classname="testCase.HelloTestNG" time="0.022"/>
+  <testcase name="success_test_02" classname="testCase.HelloTestNG" time="0.003"/>
 </testsuite>

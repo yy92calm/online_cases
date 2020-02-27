@@ -40,11 +40,13 @@ class cmd_process:
     #命令行调用，输出日志文件
     def run_cmd(self):
         temp_time = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
-        outfile = "%s\\%s_%s_out.log" % (self.log_folder,self.name,temp_time)
-        errfile = "%s\\%s_%s_err.log" % (self.log_folder,self.name,temp_time)
+        outfile = "%s\\%s\\%s_%s_out.log" % (self.log_folder,self.name,self.name,temp_time)
+        errfile = "%s\\%s\\%s_%s_err.log" % (self.log_folder,self.name,self.name,temp_time)
         outfile = outfile.replace("\\","/")
         errfile = errfile.replace("\\","/")
         print outfile,errfile
+        if not os.path.exists(self.log_folder+"/"+self.name):
+            os.mkdir(self.log_folder+"/"+self.name)
         stdout = open(outfile, 'wb')
         stderr = open(errfile, 'wb')
         cmd = shlex.split(self.cmd)
