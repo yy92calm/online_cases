@@ -24,6 +24,7 @@
                     <th error_cases="">错误用例数</th>
                     <th skip_cases="">跳过用例数</th>
                     <th report_folder="">报告地址</th>
+                    <th cost_time="">执行耗时</th>
                     <th stop_time="">上次结束时间</th>
                 </tr>
             </thead>
@@ -69,6 +70,7 @@
                     {% endif %}
                     <a href="{{ url_for('history',func_name=project.func_name)}}">历史记录</a>
                     </td>
+                    <td class="bg">{{project.cost_time}} s</td>
                     <td class="bg">{{project.end_time}}</td>
                     </tr>
                 {% endfor %}

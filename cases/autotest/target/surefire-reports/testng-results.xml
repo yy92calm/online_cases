@@ -2,7 +2,7 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="test01" duration-ms="79" started-at="2020-02-27T08:16:08Z" finished-at="2020-02-27T08:16:08Z">
+  <suite name="test01" duration-ms="85" started-at="2020-03-03T03:43:10Z" finished-at="2020-03-03T03:43:10Z">
     <groups>
       <group name="other">
         <method signature="HelloTestNG.success_test_02()[pri:0, instance:testCase.HelloTestNG@31b7dea0]" name="success_test_02" class="testCase.HelloTestNG"/>
@@ -11,13 +11,13 @@
         <method signature="HelloTestNG.success_test_01()[pri:0, instance:testCase.HelloTestNG@31b7dea0]" name="success_test_01" class="testCase.HelloTestNG"/>
       </group> <!-- main -->
     </groups>
-    <test name="autotest-mainTest" duration-ms="79" started-at="2020-02-27T08:16:08Z" finished-at="2020-02-27T08:16:08Z">
+    <test name="autotest-mainTest" duration-ms="85" started-at="2020-03-03T03:43:10Z" finished-at="2020-03-03T03:43:10Z">
       <class name="testCase.HelloTestNG">
-        <test-method status="PASS" signature="success_test_01()[pri:0, instance:testCase.HelloTestNG@31b7dea0]" name="success_test_01" duration-ms="26" started-at="2020-02-27T16:16:08Z" finished-at="2020-02-27T16:16:08Z">
+        <test-method status="PASS" signature="success_test_01()[pri:0, instance:testCase.HelloTestNG@31b7dea0]" name="success_test_01" duration-ms="26" started-at="2020-03-03T11:43:10Z" finished-at="2020-03-03T11:43:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- success_test_01 -->
-        <test-method status="PASS" signature="success_test_02()[pri:0, instance:testCase.HelloTestNG@31b7dea0]" name="success_test_02" duration-ms="1" started-at="2020-02-27T16:16:08Z" finished-at="2020-02-27T16:16:08Z">
+        <test-method status="PASS" signature="success_test_02()[pri:0, instance:testCase.HelloTestNG@31b7dea0]" name="success_test_02" duration-ms="1" started-at="2020-03-03T11:43:10Z" finished-at="2020-03-03T11:43:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- success_test_02 -->

@@ -24,9 +24,10 @@ class Project(db.Model):
     fail_cases = db.Column(db.Integer)
     error_cases = db.Column(db.Integer)
     skip_cases = db.Column(db.Integer)
-    
-    start_time = db.Column(db.DateTime, default=datetime.utcnow)
-    end_time = db.Column(db.String(100))
+    #record time
+    start_time = db.Column(db.DateTime)
+    end_time = db.Column(db.DateTime)
+    cost_time = db.Column(db.String(10))
 
     def __init__(self,func_name,func_folder,report_folder,func_command):
         self.func_name = func_name
@@ -39,7 +40,9 @@ class Project(db.Model):
         self.fail_cases = None
         self.error_cases = None
         self.skip_cases = None
-        self.end_time = None
+        self.start_time = datetime.utcnow()
+        self.end_time = datetime.utcnow()
+        self.cost_time = None
 
 
 class Record(db.Model):
@@ -52,10 +55,10 @@ class Record(db.Model):
     fail_cases = db.Column(db.Integer)
     error_cases = db.Column(db.Integer)
     skip_cases = db.Column(db.Integer)
-    end_time = db.Column(db.String(100))
-    record_time = db.Column(db.DateTime, default=datetime.utcnow)
+    record_time = db.Column(db.DateTime)
+    cost_time = db.Column(db.String(30))
 
-    def __init__(self, func_name,log_file,exec_result,total_cases,fail_cases,error_cases,skip_cases,end_time):
+    def __init__(self, func_name,log_file,exec_result,total_cases,fail_cases,error_cases,skip_cases,cost_time):
         self.func_name = func_name
         self.log_file = log_file
         self.exec_result = exec_result
@@ -63,4 +66,5 @@ class Record(db.Model):
         self.fail_cases = fail_cases
         self.error_cases = error_cases
         self.skip_cases = skip_cases
-        self.end_time = end_time
+        self.end_time = datetime.utcnow()
+        self.cost_time = cost_time

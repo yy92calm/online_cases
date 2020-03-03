@@ -7,6 +7,7 @@
 '''
 
 from flask import flash, redirect, url_for, render_template, request
+from datetime import datetime
 from online_cases import app, db
 from online_cases.models import Project,Record
 from online_cases.case_process import cmd_process
@@ -37,10 +38,13 @@ def about():
 @app.route('/run',methods=['GET'])
 def check_case():
     id =  request.args.get('id')
-    before_run_case(id)
-    t= threading.Thread(target=thread_run_case, args=(id,),name=id)
-    t.start()
-    return redirect(url_for('index'))
+    if check_run_flag(id):
+        before_run_case(id)
+        t= threading.Thread(target=thread_run_case, args=(id,),name=id)
+        t.start()
+        return redirect(url_for('index'))
+    else:
+        return "任务运行中,请稍等"
 
 #查看网页格式报告
 @app.route('/report',methods=['GET'])
@@ -116,6 +120,12 @@ def update_project():
     elif request.method == "GET":
         return render_template('update.html',form = project_form)
 
+def check_run_flag(id):
+    project = Project.query.filter_by(id=id).first()
+    if (project.exec_status == 1):
+        return False
+    elif(project.exec_status == 0):
+        return True
 
 #运行前清空数据
 def before_run_case(id):
@@ -136,6 +146,7 @@ def thread_run_case(id):
 
     try:
         #temp_cmd = cmd_process(project.func_name,"%s" % project.func_command ,".\\cases\\%s" % project.func_folder,".\\logs")
+        project.start_time = datetime.utcnow()
         temp_cmd = cmd_process(project.func_name,"%s" % project.func_command ,os.path.join(cases_folder,project.func_folder),logs_folder)
         outfile = temp_cmd.run_cmd()
         temp_case_result = case_result(outfile)
@@ -154,18 +165,15 @@ def thread_run_case(id):
         else:
             project.exec_result = 0
 
-        if (finish_time is not None) and len(finish_time) >=1:
-            project.end_time = str(finish_time[0])
-        else:
-            project.end_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-
 
     except Exception,err:
         print err
         project.exec_result = 0
-        project.end_time = None
+
 
     project.exec_status = 0
-    record = Record(project.func_name,outfile,project.exec_result,project.total_cases,project.fail_cases,project.error_cases,project.skip_cases,project.end_time)
+    project.end_time = datetime.utcnow()
+    project.cost_time = (project.end_time - project.start_time).seconds;
+    record = Record(project.func_name,outfile,project.exec_result,project.total_cases,project.fail_cases,project.error_cases,project.skip_cases,project.cost_time)
     db.session.add(record)
     db.session.commit()

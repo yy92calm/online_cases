@@ -50,7 +50,7 @@ def forge(count):
             fail_cases=fake.random_int(0, 9),
             error_cases=fake.random_int(0, 9),
             skip_cases=fake.random_int(0, 9),
-            end_time=None,
+            cost_time= None,
         )
         db.session.add(record)
     db.session.commit()

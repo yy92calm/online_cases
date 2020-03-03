@@ -21,7 +21,7 @@
                     <th error_cases="">错误用例数</th>
                     <th skip_cases="">跳过用例数</th>
                     <th log_file="">详细报告</th>
-                    <th stop_time="">结束时间</th>
+                    <th cost_time="">运行耗时</th>
                     <th record_time="">记录时间</th>
                 </tr>
             </thead>
@@ -50,7 +50,7 @@
                     <td class="bg">
                         <a href="{{ url_for('show_log',log_file=record.log_file) }}">查看日志</a>
                     </td>
-                    <td class="bg">{{record.end_time}}</td>
+                    <td class="bg">{{record.cost_time}} s</td>
                     <td class="bg">{{record.record_time}}</td>
                     </tr>
                 {% endfor %}
