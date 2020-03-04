@@ -63,7 +63,7 @@ class cmd_process:
         print p.pid
         try:
             while p.poll() == None:
-                time.sleep(5)
+                time.sleep(1)
         finally:
             print "run over"
             if platform.system().lower() == 'linux':

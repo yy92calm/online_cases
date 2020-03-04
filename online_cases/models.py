@@ -24,12 +24,14 @@ class Project(db.Model):
     fail_cases = db.Column(db.Integer)
     error_cases = db.Column(db.Integer)
     skip_cases = db.Column(db.Integer)
+    #regex
+    result_regex = db.Column(db.String(300))
     #record time
     start_time = db.Column(db.DateTime)
     end_time = db.Column(db.DateTime)
     cost_time = db.Column(db.String(10))
 
-    def __init__(self,func_name,func_folder,report_folder,func_command):
+    def __init__(self,func_name,func_folder,report_folder,func_command,result_regex):
         self.func_name = func_name
         self.func_folder = func_folder
         self.report_folder = report_folder
@@ -40,6 +42,7 @@ class Project(db.Model):
         self.fail_cases = None
         self.error_cases = None
         self.skip_cases = None
+        self.result_regex = result_regex
         self.start_time = datetime.utcnow()
         self.end_time = datetime.utcnow()
         self.cost_time = None
@@ -66,5 +69,5 @@ class Record(db.Model):
         self.fail_cases = fail_cases
         self.error_cases = error_cases
         self.skip_cases = skip_cases
-        self.end_time = datetime.utcnow()
+        self.record_time = datetime.utcnow()
         self.cost_time = cost_time

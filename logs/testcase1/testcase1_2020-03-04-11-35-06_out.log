@@ -1,0 +1,45 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< test01:autotest >---------------------------
+[INFO] Building autotest 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ autotest ---
+[INFO] Deleting F:\Projects\Tests\flask\online_cases\cases\autotest\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ autotest ---
+[WARNING] Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory F:\Projects\Tests\flask\online_cases\cases\autotest\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ autotest ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ autotest ---
+[WARNING] Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory F:\Projects\Tests\flask\online_cases\cases\autotest\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ autotest ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to F:\Projects\Tests\flask\online_cases\cases\autotest\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.17:test (default-test) @ autotest ---
+[INFO] Surefire report directory: F:\Projects\Tests\flask\online_cases\cases\autotest\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running TestSuite
+This is main test01!
+This is main test01!
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.609 sec - in TestSuite
+
+Results :
+
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.804 s
+[INFO] Finished at: 2020-03-04T11:35:16+08:00
+[INFO] ------------------------------------------------------------------------

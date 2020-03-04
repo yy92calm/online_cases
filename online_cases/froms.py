@@ -15,5 +15,5 @@ class Project_Form(Form):
     func_folder = StringField(u'执行目录',validators=[DataRequired(message=u"目录不能为空")])
     report_folder = StringField(u'报告地址',validators=[DataRequired(message=u"报告地址不能为空")])
     func_command = StringField(u'执行命令',validators=[DataRequired(message=u"执行命令不能为空")])
-    #result_regular = StringField(u'结果正则',validators=[DataRequired(message=u"结果正则不能为空")])
+    result_regex = StringField(u'结果正则',validators=[DataRequired(message=u"结果正则不能为空")])
     submit = SubmitField(u'提交')

@@ -25,8 +25,8 @@ def initdb(drop):
 
 #创建测试数据
 @app.cli.command()
-@click.option('--count', default=10, help='Quantity of messages,default is 20.')
-def forge(count):
+@click.option('--count', default=10, help='Quantity of messages,default is 10.')
+def fakerdata(count):
     from faker import Faker
     db.drop_all()
     db.create_all()
@@ -40,6 +40,7 @@ def forge(count):
             func_folder = "autotest",
             func_command = "mvn clean test",
             report_folder = "target\\surefire-reports\\emailable-report.html",
+            result_regex= ur"Tests run: (\d+\d*), Failures: (\d+\d*), Errors: (\d+\d*), Skipped: (\d+\d*)",
         )
         db.session.add(project)
         record = Record(

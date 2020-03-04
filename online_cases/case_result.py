@@ -2,7 +2,7 @@
 # coding=UTF-8
 '''
 @Author: David Yang
-@Description: 日志结果匹配，获取用用例数及时间 
+@Description: 日志结果匹配，获取用用例数及时间 (未使用)
 @CreateTime: 2019-04-26 14:44:28
 '''
 

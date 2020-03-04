@@ -12,8 +12,9 @@ from online_cases import app, db
 from online_cases.models import Project,Record
 from online_cases.case_process import cmd_process
 from online_cases.case_result import case_result
+from online_cases.case_logs_analysis import log_analysis
 from online_cases.froms import Project_Form
-import threading, time, random, codecs, re, os
+import threading, codecs, os
 from online_cases.settings import cases_folder,logs_folder
 
 #默认页面，127.0.0.1:5000
@@ -85,7 +86,8 @@ def add_project():
         func_folder = request.form.get("func_folder")
         func_command = request.form.get("func_command")
         report_folder = request.form.get("report_folder")
-        project = Project(func_name,func_folder,report_folder,func_command)
+        result_regex = request.form.get("result_regex")
+        project = Project(func_name,func_folder,report_folder,func_command,result_regex)
         db.session.add(project)
         db.session.commit()
         return redirect(url_for('index'))
@@ -108,12 +110,13 @@ def del_project():
 def update_project():
     id = request.args.get('id')
     project = Project.query.filter_by(id=id).first()
-    project_form = Project_Form(func_name=project.func_name,func_folder=project.func_folder,report_folder=project.report_folder,func_command=project.func_command)
+    project_form = Project_Form(func_name=project.func_name,func_folder=project.func_folder,report_folder=project.report_folder,func_command=project.func_command,result_regex=project.result_regex)
     if request.method == "POST":
         project.func_name = request.form.get("func_name")
         project.func_folder = request.form.get("func_folder")
         project.func_command = request.form.get("func_command")
         project.report_folder = request.form.get("report_folder")
+        project.result_regex = request.form.get("result_regex")
         #db.session.update(project)
         db.session.commit()
         return redirect(url_for('index'))
@@ -149,9 +152,12 @@ def thread_run_case(id):
         project.start_time = datetime.utcnow()
         temp_cmd = cmd_process(project.func_name,"%s" % project.func_command ,os.path.join(cases_folder,project.func_folder),logs_folder)
         outfile = temp_cmd.run_cmd()
-        temp_case_result = case_result(outfile)
-        case_num,total_time,finish_time = temp_case_result.log_result()
-        print case_num,total_time,finish_time
+        temp_case_result = log_analysis(outfile,project.result_regex)
+        case_num = temp_case_result.log_result()
+        #temp_case_result = case_result(outfile)
+        #case_num,total_time,finish_time = temp_case_result.log_result()
+
+        print case_num
 
         if (case_num is not None) and len(case_num) >= 4:
             project.total_cases = int(case_num[0])
