@@ -9,8 +9,8 @@
 {% extends 'bootstrap/base.html' %}
 {% block styles %}
    {{super()}}
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/3.4.1/flatly/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}" type="text/css">
+    <link rel="stylesheet" href=https://stackpath.bootstrapcdn.com/bootswatch/3.4.1/flatly/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.css')}}" type="text/css">
 {% endblock %}
 
 {% block title %}TYRZ_Cases!{% endblock%}
@@ -26,10 +26,8 @@
 
 
 {% block script %}
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.slim.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
-{{ moment.include_moment(local_js=url_for('static',filename='js/moment-with-locales.min.js'))}}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+    {{ moment.include_moment(local_js=url_for('static',filename='js/moment-with-locales.min.js'))}}
     {{ moment.local('zh-cn') }}
 {% endblock %}

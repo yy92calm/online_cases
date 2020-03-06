@@ -23,7 +23,7 @@ moment = Moment(app)
 nav = Nav()
 nav.register_element('top',Navbar(u'测试平台',
                         View(u'接口脚本集','index'),
-                        View(u'Postman','add_project'),
+                        View(u'在线接口测试','add_project'),
                         View(u'关于','about'),))
 nav.init_app(app)
 
